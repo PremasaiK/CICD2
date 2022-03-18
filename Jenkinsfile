@@ -35,7 +35,7 @@ pipeline{
 			steps{
 				sshagent(['premasaik-k8s'])
 				{
-					sh 'scp -r -o StrictHostKeyChecking=no deployment.yaml premasai@127.0.0.1:/home/premasai/CICD2'
+					sh 'scp -v -r -o StrictHostKeyChecking=no deployment.yaml premasai@127.0.0.1:/home/premasai/CICD2'
 					
 					script{
 						try{
