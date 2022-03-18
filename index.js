@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 const requestHandler = (request, response) => {
     console.log('Received request for URL: ' + request.url);
     response.writeHead(200);
-    response.end('Hello World!');
+    response.end('Hello World2!');
 };
 
 const server = http.createServer(requestHandler);
