@@ -42,9 +42,8 @@ pipeline{
 						try{
 							sh 'ssh premasai@127.0.0.1 kubectl apply -f deployment.yaml'
 							sh 'ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-*'
-							def POD_NAME2 = sh "ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-*"					
-							env.POD_NAME = POD_NAME2
-							echo "${POD_NAME}"
+							sh 'ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-* |awk '{ print $1}' > POD_NAME3'
+							sh 'ssh premasai@127.0.0.1 cat POD_NAME3'
 							sh 'ssh premasai@127.0.0.1 echo $POD_NAME'
 							}catch(error)
 							{
