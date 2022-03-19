@@ -45,7 +45,7 @@ pipeline{
 							def ret = sh ( script:'ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-* | awk \'{print $1}\'',returnStdout: true).trim()
 							println ret
 							println ret
-							POD_NAME = ret 
+							$POD_NAME = ret 
 							sh 'ssh premasai@127.0.0.1 echo $POD_NAME'
 							}catch(error)
 							{
