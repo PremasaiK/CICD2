@@ -40,7 +40,7 @@ pipeline{
 					script{
 						try{
 							sh 'ssh premasai@127.0.0.1 kubectl apply -f deployment.yaml'
-
+							sh 'ssh premasai@127.0.0.1 kubectl taint nodes  premasai node-role.kubernetes.io/master-'
 							}catch(error)
 							{
 							 sh 'ssh premasai@127.0.0.1 kubectl create -f deployment.yaml'
