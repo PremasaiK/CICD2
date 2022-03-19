@@ -46,7 +46,7 @@ pipeline{
 							println ret
 							println ret
 							env.POD_NAME = ret 
-							sh 'echo "${env.POD_NAME}"'
+							sh 'echo "${POD_NAME}"'
 							sh 'ssh premasai@127.0.0.1 echo $POD_NAME'
 							}catch(error)
 							{
