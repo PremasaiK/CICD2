@@ -40,8 +40,7 @@ pipeline{
 					script{
 						try{
 							sh 'ssh premasai@127.0.0.1 kubectl apply -f deployment.yaml'
-							sh 'ssh premasai@127.0.0.1 POD_NAME=$(kubectl get pods | grep kubernetes-101-* |awk '{ print $1}')'
-							sh 'ssh premasai@127.0.0.1 kubectl port-forward $POD_NAME 3001:3000'
+							sh 'ssh premasai@127.0.0.1 kubectl port-forward kubernetes-101-86dcc6db4d-4n5r9 3001:3000'
 							}catch(error)
 							{
 							 sh 'ssh premasai@127.0.0.1 kubectl create -f deployment.yaml'
