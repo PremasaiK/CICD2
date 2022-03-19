@@ -45,7 +45,7 @@ pipeline{
 							ret = sh ( script:'ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-* | awk \'{print $1}\'',returnStdout: true).trim()
 							println ret	
 							"echo came here : ${ret}"
-							ret2 = sh ( script:"ssh premasai@127.0.0.1 kubectl port-forward  ${ret} 3001:3000",returnStdout: true).trim()
+							ret2 = sh ( script:"ssh premasai@127.0.0.1 kubectl port-forward  ${ret} 3002:3000",returnStdout: true).trim()
 							sh 'ssh premasai@127.0.0.1 echo ret'
 							}catch(error)
 							{
