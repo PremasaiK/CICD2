@@ -5,6 +5,7 @@ pipeline{
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('docker-premasaik')
+		POD_NAME = "tmp"
 	}
 
 	stages {
@@ -39,8 +40,8 @@ pipeline{
 					
 					script{
 						try{
-							sh 'kubectl apply -f deployment.yaml'
-							sh 'ssh premasai@127.0.0.1 kubectl port-forward kubernetes-101-86dcc6db4d-4n5r9 3001:3000'
+							sh 'ssh premasai@127.0.0.1 kubectl apply -f deployment.yaml'
+							sh 'ssh premasai@127.0.0.1 echo $POD_NAME'
 							}catch(error)
 							{
 							 sh 'ssh premasai@127.0.0.1 kubectl create -f deployment.yaml'
