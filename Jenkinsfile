@@ -39,11 +39,11 @@ pipeline{
 					
 					script{
 						try{
-							sh 'ssh premasai@127.0.0.1 kubectl apply -f deployment.yaml --kubeconfig=/home/premasai/CICD2/kube.yaml'
+							sh 'ssh premasai@127.0.0.1 kubectl apply -f deployment.yaml --kubeconfig=/etc/kubernetes/admin.conf'
 
 							}catch(error)
 							{
-							 sh 'ssh premasai@127.0.0.1 kubectl create -f deployment.yaml --kubeconfig=/home/premasai/CICD2/kube.yaml'
+							 sh 'ssh premasai@127.0.0.1 kubectl create -f deployment.yaml --kubeconfig=/etc/kubernetes/admin.conf'
 							}
 					}
 				}
