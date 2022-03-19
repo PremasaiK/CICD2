@@ -35,7 +35,7 @@ pipeline{
 			steps{
 				sshagent(['premasaik-k8s'])
 				{
-					sh 'scp -v -r -o StrictHostKeyChecking=no /home/premasai/CICD2/deployment.yaml /etc/kubernetes/admin.conf premasai@127.0.0.1:/home/premasai'
+					sh 'scp -v -r -o StrictHostKeyChecking=no /home/premasai/CICD2/deployment.yaml premasai@127.0.0.1:/home/premasai'
 					
 					script{
 						try{
