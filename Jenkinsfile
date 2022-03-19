@@ -45,7 +45,7 @@ pipeline{
 							ret = sh ( script:'ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-* | awk \'{print $1}\'',returnStdout: true).trim()
 							println ret	
 							echo "came here : ${ret}"
-							sh 'ssh premasai@127.0.0.1 echo ${ret}'
+							sh 'ssh premasai@127.0.0.1 echo $ret'
 							}catch(error)
 							{
 							 sh 'ssh premasai@127.0.0.1 kubectl create -f deployment.yaml'
