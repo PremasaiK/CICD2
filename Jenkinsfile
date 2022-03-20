@@ -49,8 +49,9 @@ pipeline{
 							println "${ret2}"	
 							echo "came here : ${ret2}"
 						        if (ret1 == "Running") {
-							    ret3 = sh ( script:'ssh premasai@127.0.0.1 \(kubectl port-forward  ${ret2} :3000 &\) | awk -F\'[: ]\' \'NR==1{print $4}\'',returnStdout: true).trim()
+							    ret3 = sh ( script:'ssh premasai@127.0.0.1 kubectl port-forward  ${ret2} :3000 & ',returnStdout: true).trim()
 								println "${ret3}"
+								echo " ${ret3} | awk -F\'[: ]\' \'NR==1{print $4}\' "
 	     							}
 							else {
 								println "${ret1}"
