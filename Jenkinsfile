@@ -47,9 +47,10 @@ pipeline{
 							ret2 = sh ( script:'ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-* | awk \'{print $1}\'',returnStdout: true).trim()
 							println ret2	
 							"echo came here : ${ret2}"
-							ret3 = sh ( script:"ssh premasai@127.0.0.1 kubectl port-forward  ${ret2} :3000 &",returnStdout: true).trim()
-							println ret3
-							sh 'ssh premasai@127.0.0.1 echo ret'
+							if (ret1 == Running) {
+							     ret3 = sh ( script:"ssh premasai@127.0.0.1 kubectl port-forward  ${ret2} :3000 &",returnStdout: true).trim()
+							     println ret3
+							     }
 							}catch(error)
 							{
 							 sh 'ssh premasai@127.0.0.1 kubectl create -f deployment.yaml'
