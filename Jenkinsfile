@@ -49,10 +49,10 @@ pipeline{
 							echo "came here : ${ret2}"
 						        if (ret1 == "Running") {
 							    ret3 = sh ( script:"ssh premasai@127.0.0.1 kubectl port-forward  ${ret2} :3000 &",returnStdout: true).trim()
-								println "{ret3}"
+								println "${ret3}"
 	     							}
 							else {
-								println "{ret1}"
+								println "${ret1}"
 							}
 							}catch(error)
 							{
