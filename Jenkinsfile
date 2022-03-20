@@ -46,6 +46,7 @@ pipeline{
 							println ret	
 							"echo came here : ${ret}"
 							ret2 = sh ( script:"ssh premasai@127.0.0.1 kubectl port-forward  ${ret} :3000 &",returnStdout: true).trim()
+							println ret2
 							sh 'ssh premasai@127.0.0.1 echo ret'
 							}catch(error)
 							{
