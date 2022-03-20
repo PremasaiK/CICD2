@@ -45,7 +45,7 @@ pipeline{
 							ret1 = sh ( script:'ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-* | awk \'{print $3}\'',returnStdout: true).trim()
 							println ret1
 							ret2 = sh ( script:'ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-* | awk \'{print $1}\'',returnStdout: true).trim()
-							 println ret2	
+							println (" came here first: ${ret2} ")	
 							 echo "came here : ${ret2}"
 							}catch(error)
 							{
