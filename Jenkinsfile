@@ -48,7 +48,7 @@ pipeline{
 							ret2 = sh ( script:'ssh premasai@127.0.0.1 kubectl get pods | grep kubernetes-101-* | awk \'{print $1}\'',returnStdout: true).trim()
 							println "${ret2}"	
 							echo "came here : ${ret2}"
-							env.POD_NAME = ${ret2}
+							env.POD_NAME = "${ret2}"
 							echo "env : ${env.POD_NAME}"
 						        if (ret1 == "Running") {
 								ret3 = sh ( script:"ssh premasai@127.0.0.1 kubectl port-forward  ${ret2} :3000 & ",returnStdout: true).trim()
