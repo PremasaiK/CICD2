@@ -13,7 +13,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t premasaik/kubernetes-101:v2 .'
+				sh 'docker build -t premasaik/kubernetes-101:v3 .'
 			}
 		}
 
@@ -27,7 +27,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push premasaik/kubernetes-101:v2'
+				sh 'docker push premasaik/kubernetes-101:v3'
 			}
 		}
 		
